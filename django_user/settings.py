@@ -125,11 +125,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 # Page to go after successfull login
 LOGIN_REDIRECT_URL = 'home'
 
-# Page to go after successfull logout
-# LOGOUT_REDIRECT_URL = 'home'
 
-# This will display email in Console.
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
