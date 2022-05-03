@@ -1,8 +1,7 @@
-asgiref==3.5.0
 autopep8==1.6.0
-backports.zoneinfo==0.2.1
-Django==4.0.3
-django-utils-six==2.0
+Django==2.2.3
+django-widget-tweaks==1.4.12
 pycodestyle==2.8.0
-sqlparse==0.4.2
+pytz==2019.1
+sqlparse==0.3.0
 toml==0.10.2

@@ -1,14 +1,39 @@
 {% extends 'base.html' %}
 
 {% block title %}Sign Page{% endblock title %}
-
+{% load widget_tweaks %}
 {% block content %} 
-    <h2>Sign Page</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Register</button>
-        <br><br>
-        <a href="{% url 'home' %}">Home</a>
-    </form>
+    <div class="row my-3">
+        <h1 class="text-center">Sign Up</h1>
+        <div class="col-md-6 offset-md-3">
+            <form method="post">
+                {% csrf_token %}
+    
+                {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+                {% endfor %}
+    
+                {% for field in form.visible_fields %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field|add_class:'form-control' }}
+                    {% for error in field.errors %}
+                    <span class="help-block">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+    
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success my-2">
+                        <span class="glyphicon glyphicon-ok"></span> Save
+                    </button>
+                    <a href="{% url 'home' %}" class="btn btn-default">Cancel</a>
+                </div>
+            </form>
+        </div>
+    
+    </div>
+    
 {% endblock content %}
+
+
