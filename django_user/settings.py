@@ -126,7 +126,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 LOGIN_REDIRECT_URL = 'home'
 
 
-
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'

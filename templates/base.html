@@ -12,7 +12,7 @@
 
     <title>
         {% block title %}
-            Django Authentication
+        Django Authentication
         {% endblock title %}
     </title>
 </head>
@@ -22,8 +22,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="{% url 'home'  %}">Authenticate</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -31,7 +32,7 @@
                     {% if user.is_authenticated %} %}
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Logout</a>
-    
+
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'profile' user.id %}">Edit Profile</a>
@@ -50,36 +51,41 @@
                         <a class="nav-link active" aria-current="page" href="{% url 'signup' %}">Register</a>
                     </li>
                     {% endif %}
-    
-    
-    
-    
-    
+
+
+
+
+
             </div>
         </div>
     </nav>
-<div class="container my-5">
-    {% if messages %}
-    {% for message in messages %}
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>{{message}}</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <div class="container my-5">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>{{message}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+
+        {% block content %}
+
+        {% endblock content %}
     </div>
-    {% endfor %}
-    {% endif %}
 
 
-    {% block content %}
-
-    {% endblock content %}
-</div>
-
-    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
- 
+    <script>
+        document.querySelector(".alert").style.display = "block";
+        setTimeout(function () {
+            document.querySelector(".alert").style.display = "none";
+        }, 9000);
+    </script>
 </body>
 
 </html>
